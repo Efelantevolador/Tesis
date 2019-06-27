@@ -1,0 +1,15 @@
+.borde-b {
+    border: 1px solid blue;
+}
+
+.borde-r {
+    border: 1px solid red;
+}
+
+.fondo-r {
+    background: red;
+}
+
+.fondo-g {
+    background: gray;
+}
