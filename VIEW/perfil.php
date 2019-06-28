@@ -312,7 +312,7 @@
             </div>
         </div>
     </form>
-    <table class="table borde-black">
+    <table class="table table-bordered table-hover">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Nivel Educacional</th>
@@ -329,7 +329,7 @@
                 <td>Boston Collegue</td>
                 <td>2015</td>
                 <td>
-                    <img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar">
+                    <a href="#"><img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar"></a>
                 </td>
             </tr>
             <tr>
@@ -338,7 +338,7 @@
                 <td>Boston Collegue</td>
                 <td>2015</td>
                 <td>
-                    <img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar">
+                    <a href="#"><img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar"></a>
                 </td>
             </tr>
             <tr>
@@ -347,7 +347,7 @@
                 <td>Boston Collegue</td>
                 <td>2015</td>
                 <td>
-                    <img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar">
+                    <a href="#"><img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar"></a>
                 </td>
             </tr>
         </tbody>
