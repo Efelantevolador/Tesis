@@ -13,7 +13,7 @@
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     <header>
     <!-- Barra Navegacion -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="../VIEW/Base-pag.php">Trabaja a tu medida</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,12 @@
                         <a class="nav-link disabled" href="#">Déshabilitado</a>
                     </li>
                 </ul>
-                <a class="nav-link" href="#">Iniciar Sesión <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">
+                    <img src="../CSS/open-iconic-master/png/account-login-3x.png" alt="icon name">  <!--|  Entrar  |--->
+                    <img src="../CSS/open-iconic-master/png/account-logout-3x.png" alt="icon name"> <!--|  Salir   |--->
+                    <img src="../CSS/open-iconic-master/png/person-3x.png" alt="icon name">         <!--| Usuario  |-->
+                    Iniciar Sesión
+                </a>
                 <!-- *************** BUSCADOR
                 <form class="form-inline my-2 my-lg-0 disabled">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -55,17 +60,52 @@
     </nav>
     </header>
     
-    <div class="container-fluid borde-r">
+    <div class="container-fluid">
         <div class="row"> <!--row: se utiliza para definir una tabla de posicionamiento donde utilizar despues las clases Col-xs-?  -->
             <!--*************************|2 MENU DE NAVEGACION IZQUIERDO |**********************************************************-->
-            <div class="col-xl-3">
+            <div class="col-xl-3 borde-b">
+                <h1>Menu Navegacion</h1>
                 
             </div>
             <!--*************************|2 FIN MENU DE NAVEGACION IZQUIERDO |******************************************************-->
-            <div class="col-xl-9">
-                <div class="">
+            <div class="col-xl-9 borde-b">
+                <div class="container">
                 <!--*****************|3 CONTENIDO INTERNO DE PAG|*****************************************************************-->
-                    
+                        <div class="row align-content-center">
+                        <div class="col-xl-1 text-center borde-r"></div>
+                        <div class="col-xl-10 text-center borde-r">
+                            <h1>Titulo</h1>
+                        </div>
+                        <div class="col-xl-1 text-center borde-r"></div>
+                        <div class="col-xl-6 borde-r">
+                            <h1>1A</h1>
+                            <!--INPUT BASICO-->
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Rut</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <!--INPUT BASICO-->
+
+                            <!--COMBOBOX BASICO-->
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="inputGroupSelect02">
+                                    <option selected>Seleccion</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                                </div>
+                            </div>
+                            <!--COMBOBOX BASICO-->
+                        </div>
+                        <div class="col-xl-6 borde-r">
+                            <h1>2B</h1>
+                        </div>
+                    </div>
                 <!--*****************|3 FIN CONTENIDO INTERNO DE PAG|*************************************************************-->
                 </div>
             </div>

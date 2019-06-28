@@ -2,6 +2,14 @@
     border: 1px solid blue;
 }
 
+.borde-black{
+    border: 1px solid black;
+}
+
+.border-g{
+    border: 1px solid green;
+}
+
 .borde-r {
     border: 1px solid red;
 }
