@@ -2,12 +2,61 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Perfil</title>
+        <title>Perfil Funcional</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <link rel="stylesheet" href="../CSS/bootstrap/css/bootstrap.min.css">
-        
+        <script type="text/javascript">
+        function Paralisis() {
+        element = document.getElementById("contenido");
+        element0 = document.getElementById("contenido0");
+        element1 = document.getElementById("contenido1");
+        element2 = document.getElementById("contenido2");
+        element3 = document.getElementById("contenido3");
+        check = document.getElementById("check");
+        if (check.checked) {
+            element.style.display='block';
+            element0.style.display='block';
+            element1.style.display='block';
+            element2.style.display='block';
+            element3.style.display='block';
+        }
+        else {
+            element.style.display='none';
+            element0.style.display='none';
+            element1.style.display='none';
+            element2.style.display='none';
+            element3.style.display='none';
+        }
+    }
+        function ParalisisCerebral() {
+        element = document.getElementById("conte");
+        element0 = document.getElementById("conte0");
+        element1 = document.getElementById("conte1");
+        element2 = document.getElementById("conte2");
+        element3 = document.getElementById("conte3");
+        check = document.getElementById("check2");
+        if (check.checked) {
+            element.style.display='block';
+            element0.style.display='block';
+            element1.style.display='block';
+            element2.style.display='block';
+            element3.style.display='block';
+            btn2.style.display='block';
+        }
+        else {
+            element.style.display='none';
+            element0.style.display='none';
+            element1.style.display='none';
+            element2.style.display='none';
+            element3.style.display='none';
+        }
+    }
+        function tipoParalisis(){
+            element = document.get
+        }
+</script>
     </head>
     <body>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
@@ -63,7 +112,7 @@
     <div class="container-fluid">
         <div class="row"> <!--row: se utiliza para definir una tabla de posicionamiento donde utilizar despues las clases Col-xs-?  -->
             <!--*************************|2 MENU DE NAVEGACION IZQUIERDO |**********************************************************-->
-            <div class="col-xl-3 borde-b table-dark">
+            <div class="col-xl-3 borde-b table-dark" style="min-height: 800px">
                 <div class="">
                     <table class="table asd"style="position:absolute;top:0;left:0;">
                         <thead>
@@ -74,22 +123,22 @@
                         <tbody>
                         <tr>
                             <td>
-                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="" style="color:white;"> Perfil</a>
+                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="../VIEW/perfil.php" style="color:white;"> Perfil</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="" style="color:white;"> Perfil Funcinal</a>
+                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="../VIEW/perfil-funcional.php" style="color:white;"> Perfil Funcinal</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="" style="color:white;">Mis Postulaciones</a>
+                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="../VIEW/postulaciones.php" style="color:white;">Mis Postulaciones</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="" style="color:white;"> Buscar Trabajo</a>
+                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="../VIEW/buscarOfertas.php" style="color:white;"> Buscar Trabajo</a>
                             </td>
                         </tr>
                         </tbody>
@@ -107,20 +156,158 @@
                         </div>
                         <div class="col-xl-1 text-center borde-r"></div>
                         <div class="col-xl-12 borde-r">
-                            <h1>Información Discapacidad</h1>
+                            <h3>Información Funcional</h3>
 <!--********************************|A) INFORMACION Discapacidad|***************************************-->
-                                <h3>Paralisis Cerebral:Espaticidad, Atetosis, Mixto </h3>
-                                    <p>Espaticidad: Musculos tensos y rigidos (Aumento en la masa muscular)
-                                    Movimientos Bruscos y malos coordinando</p>
-                                    <p>Atetosis: Movimientos descoordinados, lentos.... paralisis afecta: brazos pies lengua... 
-                                    Precenta movimientos involuntarios y tiene disminucion de masa muscular..</p> 
-                                    <p>Mixto: puede mezclar caracteristicas de ambas paralisis</p>
-                                    <h5>Puntos claves</h5>
-                                    <p>Movimientos,Musculacion, Partes del cuerpo involucrado en paralisis.</p>
-                                <h3>Paralisis: Hemiplegia, Diplegia, Cuadraplegia, Paraplegia, Monoplegia, Triplegia</h3>
                                 
-                                <h3>Tono Fisico: Isotonico, Hipertonico, Hipotonico. </h3>
-                                <h3>Grado de Severidad: Grave,Moderado,Leve</h3>
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <h6>Selecciones las opciones que usted precenta.</h6>
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input type="checkbox" id="check" aria-label="Checkbox for following text input" onchange="javascript:Paralisis()">
+                                                    </div>
+                                                </div>
+                                                <input type="text" value="Paralisis" class="form-control" disabled aria-label="Text input with checkbox">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input type="checkbox" id="check2" aria-label="Checkbox for following text input" onchange="javascript:ParalisisCerebral()">
+                                                    </div>
+                                                </div>
+                                                <input type="text" value="Paralisis Cerebral" class="form-control" disabled aria-label="Text input with checkbox">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-xl-12"></div>  <!-- Opcion Paralisis -->
+
+
+                                        <div class="col-xl-4" style="display: none;" id="contenido">
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text" for="inputGroupSelect02">Tipo :</label>
+                                                </div>
+                                                <select class="custom-select" id="inputGroupSelect02">
+                                                    <option selected disabled>-Paralisis-</option>
+                                                    <option value="">Hemiplegia</option>
+                                                    <option value="">Diplegia</option>
+                                                    <option value="">Paraplegia</option>
+                                                    <option value="">Monoplegia</option>
+                                                    <option value="">Triplegia</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        
+                                        <div class="col-xl-12" style="display:none;" id="contenido0">
+                                            <h6>Herramientas de ayuda Necesarias</h6>
+                                        </div>  <!-- salto linea -->
+
+                                        <div class="col-xl-3" style="display:none;" id="contenido1">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                                    </div>
+                                                </div>
+                                                <input type="text" value="Muletas" class="form-control" disabled aria-label="Text input with checkbox">
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text" for="inputGroupSelect02"><img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3" style="display:none;" id="contenido2">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                                    </div>
+                                                </div>
+                                                <input type="text" value="Silla ruedas" class="form-control" disabled aria-label="Text input with checkbox">
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text" for="inputGroupSelect02"> <img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                </div>
+                                            </div>
+                                        </div>   
+                                        <div class="col-xl-4" style="display:none;" id="contenido3">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                                    </div>
+                                                </div>
+                                                <input type="text" value="Silla Ruedas Electrica" class="form-control" disabled aria-label="Text input with checkbox">
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text" for="inputGroupSelect02"> <img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--OPCION PARALISIS CEREBRAL-->
+                                        <div class="col-xl-4" id="conte" style="display:none;">
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text" for="inputGroupSelect02">Tipo :</label>
+                                                </div>
+                                                <select class="custom-select" id="inputGroupSelect02">
+                                                    <option selected disabled>-Paralisis Cerebral-</option>
+                                                    <option value="">Espaticidad</option>
+                                                    <option value="">Atetosis</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12"></div>
+                                        <div class="col-xl-3" id="conte0" style="display:none;">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                                    </div>
+                                                </div>
+                                                <input type="text" value="Muletas" class="form-control" disabled aria-label="Text input with checkbox">
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text" for="inputGroupSelect02"><img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3" id="conte1" style="display:none;">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                                    </div>
+                                                </div>
+                                                <input type="text" value="Silla ruedas" class="form-control" disabled aria-label="Text input with checkbox">
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text" for="inputGroupSelect02"> <img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                </div>
+                                            </div>
+                                        </div>   
+                                        <div class="col-xl-4" id="conte2" style="display:none;">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                                    </div>
+                                                </div>
+                                                <input type="text" value="Silla Ruedas Electrica" class="form-control" disabled aria-label="Text input with checkbox">
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text" for="inputGroupSelect02"> <img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 mb-3" >
+                                            <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Guardar Información">
+                                        </div>     
+                                    </div>
+                                </form>
+
                         </div>
                     </div>
                 <!--*****************|3 FIN CONTENIDO INTERNO DE PAG|*************************************************************-->

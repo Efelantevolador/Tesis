@@ -63,7 +63,7 @@
     <div class="container-fluid">
         <div class="row"> <!--row: se utiliza para definir una tabla de posicionamiento donde utilizar despues las clases Col-xs-?  -->
             <!--*************************|2 MENU DE NAVEGACION IZQUIERDO |**********************************************************-->
-            <div class="col-xl-3 borde-b table-dark">
+            <div class="col-xl-3 borde-b table-dark" style="min-height: 800px">
                 <div class="">
                     <table class="table asd"style="position:absolute;top:0;left:0;">
                         <thead>
@@ -74,22 +74,22 @@
                         <tbody>
                         <tr>
                             <td>
-                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="" style="color:white;"> Perfil</a>
+                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="../VIEW/perfil.php" style="color:white;"> Perfil</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="" style="color:white;"> Perfil Funcinal</a>
+                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="../VIEW/perfil-funcional.php" style="color:white;"> Perfil Funcinal</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="" style="color:white;">Mis Postulaciones</a>
+                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="../VIEW/postulaciones.php" style="color:white;">Mis Postulaciones</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="" style="color:white;"> Buscar Trabajo</a>
+                                <img src="../CSS/open-iconic-master/png/bookmark-3x.png" alt="icon name"><a href="../VIEW/buscarOfertas.php" style="color:white;"> Buscar Trabajo</a>
                             </td>
                         </tr>
                         </tbody>
@@ -106,8 +106,8 @@
                             <h1>Perfil</h1>
                         </div>
                         <div class="col-xl-1 text-center borde-r"></div>
-                        <div class="col-xl-12 borde-r">
-                            <h1>Información personal</h1>
+                        <div class="col-xl-12 borde-r" style="border-top:dotted 2px black;padding-top:5px;">
+                            <h3>Información personal</h3>
 <!--********************************|A) INFORMACION PERSONAL|***************************************-->
                                 <form action="">
                                     <div class="row">
@@ -287,7 +287,7 @@
                                 </form>
 <!--********************************|A) FIN INFORMACION PERSONAL|***************************************-->
                         </div>
-                        <div class="col-xl-12 borde-r">
+                        <div class="col-xl-12 borde-r" style="border-top:dotted 2px black;padding-top:5px;border-bottom:dotted 2px black;margin-bottom:15px;">
                             <h1>Información Educacional</h1>
 <!--********************************|B) INFORMACION EDUCACIONAL|***************************************-->
                                 <form action="">
