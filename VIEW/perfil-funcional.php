@@ -222,7 +222,9 @@
                                         <div class="col-xl-12" style="display:none;" id="contenido0">
                                             <h6>Herramientas de ayuda Necesarias</h6>
                                         </div>  <!-- salto linea -->
-
+                                        <?php
+                                            
+                                        ?>
                                         <div class="col-xl-3" style="display:none;" id="contenido1">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
