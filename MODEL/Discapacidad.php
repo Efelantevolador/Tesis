@@ -1,10 +1,12 @@
 <?php
   require_once("conexion.php");
+  require_once("Tipo_ayuda.php");
   class Discapacidad
     {
         private $cod_discapacidad;
         private $nombre_dis;
         private $tipo_dis;
+        private $tipo_ayuda;
 
         public function __construct()
         {
@@ -23,6 +25,10 @@
             return $this->tipo_dis;
         }
 
+        public function getTipo_ayuda(){
+            return $this->tipo_ayuda;
+        }
+
         public function setCod_discapacidad($cod_discapacidad)
         {
             $this->cod_discapacidad = $cod_discapacidad;
@@ -38,6 +44,11 @@
             $this->tipo_dis = $tipo_dis;
         }
 
+        public function setTipo_ayuda($ayuda)
+        {
+            $this->tipo_ayuda = $ayuda;
+        }
+
         public function listar_dis(){
             $conn=new Conexion();
             $conexion=$conn->conectar();
@@ -50,6 +61,24 @@
                     $dis->setCod_discapacidad($row["cod_discapacidad"]);
                     $dis->setNombre_dis($row["nombre_dis"]);
                     $dis->setTipo_dis($row["tipo_dis"]);
+                    $lista[]=$dis;
+                }
+            }
+            return $lista;
+        }
+
+        public function listar_ayuda(){
+            $conn=new Conexion();
+            $conexion=$conn->conectar();
+            $sql="SELECT * FROM ((lista_ayuda
+            INNER JOIN discapacidad ON lista_ayuda.cod_disc_lista= discapacidad.cod_discapacidad)
+            INNER JOIN ayuda_discapacidad ON lista_ayuda.cod_ayu_lista = ayuda_discapacidad.cod_ayuda) WHERE cod_disc_lista='".$this->cod_discapacidad."'";
+            $result = $conexion->query($sql);
+            if ($result->num_rows > 0) {
+                $lista=[];
+                while($row = $result->fetch_assoc()) {
+                    $dis=new Tipo_ayuda();
+                    $dis->setTipo_ayuda($row["cod_discapacidad"]);
                     $lista[]=$dis;
                 }
             }
