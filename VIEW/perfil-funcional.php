@@ -9,11 +9,11 @@
         <link rel="stylesheet" href="../CSS/bootstrap/css/bootstrap.min.css">
         <script type="text/javascript">
         function Paralisis() {
-        element = document.getElementById("contenido");
+        element = document.getElementById("comboboxP");
         element0 = document.getElementById("contenido0");
-        element1 = document.getElementById("contenido1");
-        element2 = document.getElementById("contenido2");
-        element3 = document.getElementById("contenido3");
+        element1 = document.getElementById("muleta");
+        element2 = document.getElementById("silla");
+        element3 = document.getElementById("sillaE");
         check = document.getElementById("check");
         if (check.checked) {
             element.style.display='block';
@@ -31,11 +31,11 @@
         }
     }
         function ParalisisCerebral() {
-        element = document.getElementById("conte");
+        element = document.getElementById("comboboxPC");
         element0 = document.getElementById("conte0");
-        element1 = document.getElementById("conte1");
-        element2 = document.getElementById("conte2");
-        element3 = document.getElementById("conte3");
+        element1 = document.getElementById("muleta2");
+        element2 = document.getElementById("silla2");
+        element3 = document.getElementById("sillaE2");
         check = document.getElementById("check2");
         if (check.checked) {
             element.style.display='block';
@@ -199,7 +199,7 @@
                                         <div class="col-xl-12"></div>  <!-- Opcion Paralisis -->
 
 
-                                        <div class="col-xl-4" style="display: none;" id="contenido">
+                                        <div class="col-xl-4" style="display: none;" id="comboboxP">
                                             <div class="input-group mb-4">
                                                 <div class="input-group-append">
                                                     <label class="input-group-text" for="inputGroupSelect02">Tipo :</label>
@@ -223,7 +223,7 @@
                                             <h6>Herramientas de ayuda Necesarias</h6>
                                         </div>  <!-- salto linea -->
 
-                                        <div class="col-xl-3" style="display:none;" id="contenido1">
+                                        <div class="col-xl-3" style="display:none;" id="muleta">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
@@ -236,7 +236,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-3" style="display:none;" id="contenido2">
+                                        <div class="col-xl-3" style="display:none;" id="silla">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
@@ -249,7 +249,7 @@
                                                 </div>
                                             </div>
                                         </div>   
-                                        <div class="col-xl-4" style="display:none;" id="contenido3">
+                                        <div class="col-xl-4" style="display:none;" id="sillaE">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
@@ -263,7 +263,7 @@
                                             </div>
                                         </div>
                                         <!--OPCION PARALISIS CEREBRAL-->
-                                        <div class="col-xl-4" id="conte" style="display:none;">
+                                        <div class="col-xl-4" id="comboboxPC" style="display:none;">
                                             <div class="input-group mb-4">
                                                 <div class="input-group-append">
                                                     <label class="input-group-text" for="inputGroupSelect02">Tipo :</label>
@@ -281,8 +281,10 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-xl-12"></div>
-                                        <div class="col-xl-3" id="conte0" style="display:none;">
+                                        <div class="col-xl-12" style="display:none;" id="conte0">
+                                            <h6>Herramientas de ayuda Necesarias</h6>
+                                        </div>
+                                        <div class="col-xl-3" id="muleta2" style="display:none;">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
@@ -295,7 +297,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-3" id="conte1" style="display:none;">
+                                        <div class="col-xl-3" id="silla2" style="display:none;">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
@@ -308,7 +310,7 @@
                                                 </div>
                                             </div>
                                         </div>   
-                                        <div class="col-xl-4" id="conte2" style="display:none;">
+                                        <div class="col-xl-4" id="sillaE2" style="display:none;">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
