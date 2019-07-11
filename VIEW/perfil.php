@@ -10,6 +10,12 @@
         
     </head>
     <body>
+        <?php
+            require_once("../MODEL/Postulante.php");
+            session_start();
+            $p=new Postulante();
+            $p=$_SESSION["Postulante"];
+        ?>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     <header>
     <!-- Barra Navegacion -->
@@ -46,7 +52,9 @@
                     <img src="../CSS/open-iconic-master/png/account-login-3x.png" alt="icon name">  <!--|  Entrar  |--->
                     <img src="../CSS/open-iconic-master/png/account-logout-3x.png" alt="icon name"> <!--|  Salir   |--->
                     <img src="../CSS/open-iconic-master/png/person-3x.png" alt="icon name">         <!--| Usuario  |-->
-                    Iniciar Sesión
+                    <?php
+                    echo $p->getNombre()." ".$p->getApellido_Paterno();
+                    ?>
                 </a>
                 <!-- *************** BUSCADOR
                 <form class="form-inline my-2 my-lg-0 disabled">
@@ -116,7 +124,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Rut :</span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" disabled>
+                                                <input type="text" value="<?php echo $p->getRut();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" disabled>
                                             </div>
                                         </div>
                                         <div class="col-xl-8"></div>
@@ -125,7 +133,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Nombre :</span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" value="<?php echo $p->getNombre();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-4">
@@ -133,7 +141,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Apellido Paterno :</span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" value="<?php echo $p->getApellido_Paterno();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-4">
@@ -141,7 +149,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Apellido Materno :</span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" value="<?php echo $p->getApellido_Materno();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-4">
@@ -149,7 +157,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">@email :</span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" value="<?php echo $p->getCorreo();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-4">
@@ -157,7 +165,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Telefono :</span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" value="<?php echo $p->getTelefono();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-4"></div>
@@ -170,9 +178,8 @@
                                                     <label class="input-group-text" for="inputGroupSelect02">Dia :</label>
                                                 </div>
                                                 <select class="custom-select" id="inputGroupSelect02">
-                                                    <option selected disabled>-Dia-</option>
-                                                    <!--
-                                                    <php
+                                                    <option disabled>-Dia-</option>
+                                                    <?php
                                                         for ($i = 1; $i <=31; $i++){
                                                             if(substr($p->getFecha_nacimiento(),-2)==$i){
                                                                 echo '<option value="'.$i.'" selected>'.$i.'</option>';
@@ -181,7 +188,6 @@
                                                             }
                                                         }
                                                     ?>
-                                                    -->
                                                 </select>
                                             </div>
                                         </div>
@@ -213,12 +219,12 @@
                                                     <label class="input-group-text" for="inputGroupSelect02">Año :</label>
                                                 </div>
                                                 <select class="custom-select" id="inputGroupSelect02">
-                                                    <option value=""selected disabled>- Año -</option>
-                                                        <!--
-                                                        <php
+                                                    <option value="" disabled>- Año -</option>
+                                                        
+                                                        <?php
                                                             $a=2019;
                                                             for ($i = 1; $i <=70; $i++){
-                                                                if(substr($p->getFecha_nacimiento(),0,-6)==$i){
+                                                                if(substr($p->getFecha_nacimiento(),0,-6)==$a){
                                                                     echo '<option value="'.$a.'" selected>'.$a.'</option>';
                                                                 }
                                                                 else{
@@ -227,7 +233,6 @@
                                                                 $a=$a-1;
                                                             }
                                                         ?>
-                                                        -->
                                                 </select>
                                             </div>
                                         </div>
@@ -241,10 +246,23 @@
                                                     <label class="input-group-text" for="inputGroupSelect02">Región :</label>
                                                 </div>
                                                 <select class="custom-select" id="inputGroupSelect02">
-                                                    <option selected disabled>-Region-</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    <option selected disabled>- Región -</option>
+                                                    <option value="15">Región de Arica y Parinacota</option>
+                                                    <option value="1">Región de Tarapacá</option>
+                                                    <option value="2">Región de Antofagasta</option>
+                                                    <option value="3">Región de Atacama</option>
+                                                    <option value="4">Región de Coquimbo</option>
+                                                    <option value="5">Región de Valparaíso</option>
+                                                    <option value="13">Región de Metropolitana de Santiago</option>
+                                                    <option value="6">Región de Libertador General Bernardo O'Higgins</option>
+                                                    <option value="7">Región de Maule</option>
+                                                    <option value="16">Región de Ñuble</option>
+                                                    <option value="8">Región de Biobío</option>
+                                                    <option value="9">Región de La Araucanía</option>
+                                                    <option value="14">Región de Los Ríos</option>
+                                                    <option value="10">Región de Los Lagos</option>
+                                                    <option value="11">Región de Aysén del General Carlos Ibáñez del Campo</option>
+                                                    <option value="12">Región de Magallanes y de la Antártica Chilena</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -288,7 +306,7 @@
 <!--********************************|A) FIN INFORMACION PERSONAL|***************************************-->
                         </div>
                         <div class="col-xl-12 borde-r" style="border-top:dotted 2px black;padding-top:5px;border-bottom:dotted 2px black;margin-bottom:15px;">
-                            <h1>Información Educacional</h1>
+                            <h1>Información Educacional [WIP]</h1>
 <!--********************************|B) INFORMACION EDUCACIONAL|***************************************-->
                                 <form action="">
                                     <div class="row">

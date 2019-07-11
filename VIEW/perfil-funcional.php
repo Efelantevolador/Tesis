@@ -59,6 +59,14 @@
 </script>
     </head>
     <body>
+        <?php
+            require_once("../MODEL/Postulante.php");
+            require_once("../MODEL/Discapacidad.php");
+            session_start();
+            $p=new Postulante();
+            $dis=new Discapacidad();
+            $p=$_SESSION["Postulante"];
+        ?>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     <header>
     <!-- Barra Navegacion -->
@@ -95,7 +103,9 @@
                     <img src="../CSS/open-iconic-master/png/account-login-3x.png" alt="icon name">  <!--|  Entrar  |--->
                     <img src="../CSS/open-iconic-master/png/account-logout-3x.png" alt="icon name"> <!--|  Salir   |--->
                     <img src="../CSS/open-iconic-master/png/person-3x.png" alt="icon name">         <!--| Usuario  |-->
-                    Iniciar Sesión
+                    <?php
+                    echo $p->getNombre()." ".$p->getApellido_Paterno();
+                    ?>
                 </a>
                 <!-- *************** BUSCADOR
                 <form class="form-inline my-2 my-lg-0 disabled">
@@ -195,12 +205,15 @@
                                                     <label class="input-group-text" for="inputGroupSelect02">Tipo :</label>
                                                 </div>
                                                 <select class="custom-select" id="inputGroupSelect02">
-                                                    <option selected disabled>-Paralisis-</option>
-                                                    <option value="">Hemiplegia</option>
-                                                    <option value="">Diplegia</option>
-                                                    <option value="">Paraplegia</option>
-                                                    <option value="">Monoplegia</option>
-                                                    <option value="">Triplegia</option>
+                                                <option selected disabled>-Paralisis-</option>
+                                                <?php
+                                                    $disc=new Discapacidad();
+                                                    $dis->setTipo_dis("7");
+                                                    $list=$dis->listar_dis();
+                                                        foreach ($list as $disc) {
+                                                            echo '<option value="'.$disc->getCod_discapacidad().'">'.$disc->getNombre_dis().'</option>';
+                                                        }
+                                                ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -257,8 +270,14 @@
                                                 </div>
                                                 <select class="custom-select" id="inputGroupSelect02">
                                                     <option selected disabled>-Paralisis Cerebral-</option>
-                                                    <option value="">Espaticidad</option>
-                                                    <option value="">Atetosis</option>
+                                                    <?php
+                                                        $disc=new Discapacidad();
+                                                        $dis->setTipo_dis("8");
+                                                        $list=$dis->listar_dis();
+                                                            foreach ($list as $disc) {
+                                                                echo '<option value="'.$disc->getCod_discapacidad().'">'.$disc->getNombre_dis().'</option>';
+                                                            }
+                                                    ?>
                                                 </select>
                                             </div>
                                         </div>
