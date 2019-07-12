@@ -12,7 +12,7 @@
       private $fecha_nacimiento;
       private $telefono;
       private $vivienda;
-      //private $lista_discapacidad;
+      private $lista_discapacidad;
     
       public function __construct() {
         
@@ -93,13 +93,13 @@
         return $this->vivienda;
       }
     
-      /*public function setLista_discapacidad($lista){
+      public function setLista_discapacidad($lista){
         $this->lista_discapacidad=$lista;
       }
     
       public function getLista_discapacidad(){
         return $this->lista_discapacidad;
-      }*/
+      }
 
       public function login_postulante(){
         $conn=new Conexion();
@@ -161,6 +161,19 @@
         $conn=new Conexion();
         $conexion=$conn->conectar();
         $sql= "INSERT INTO postulante VALUES ('".$this->rut."','".$this->nombre."','".$this->apellido_materno."','".$this->apellido_paterno."','".$this->correo."','".$this->pass."','".$this->fecha_nacimiento."','".$this->telefono."','".$this->vivienda."')";
+        if ($conexion->query($sql) === TRUE) {
+            return "exito";
+        } 
+        else{
+            return $conexion->error;
+        }
+        $conexion->close();
+      }
+
+      public function setDiscapacidades($cod){
+        $conn=new Conexion();
+        $conexion=$conn->conectar();
+        $sql= "INSERT INTO lista_discapacidad VALUES ('".$this->rut."','".$cod."')";
         if ($conexion->query($sql) === TRUE) {
             return "exito";
         } 

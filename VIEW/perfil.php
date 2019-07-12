@@ -12,9 +12,14 @@
     <body>
         <?php
             require_once("../MODEL/Postulante.php");
+            require_once("../MODEL/Vivienda.php");
             session_start();
             $p=new Postulante();
-            $p=$_SESSION["Postulante"];
+            if(isset($_SESSION["Postulante"])){
+                $p=$_SESSION["Postulante"];
+                $viv=new Vivienda();
+                $viv=$p->getVivienda();
+            }
         ?>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     <header>
@@ -49,11 +54,17 @@
                     </li>
                 </ul>
                 <a class="nav-link" style="color:white;" href="#">
-                    <img src="../CSS/open-iconic-master/png/account-login-3x.png" alt="icon name">  <!--|  Entrar  |--->
-                    <img src="../CSS/open-iconic-master/png/account-logout-3x.png" alt="icon name"> <!--|  Salir   |--->
-                    <img src="../CSS/open-iconic-master/png/person-3x.png" alt="icon name">         <!--| Usuario  |-->
                     <?php
-                    echo $p->getNombre()." ".$p->getApellido_Paterno();
+                    if(isset($_SESSION["Postulante"])){
+                        echo "<a href='salir.php'><img src='../CSS/open-iconic-master/png/account-logout-3x.png' alt='icon name'></a>";
+                        echo "<img src='../CSS/open-iconic-master/png/person-3x.png' alt='icon name'>";
+                        echo $p->getNombre()." ".$p->getApellido_Paterno();
+                    }
+                    else{
+                        echo "<a href='iniciarSesion.php'><img src='../CSS/open-iconic-master/png/account-login-3x.png' alt='icon name'></a>";
+                        echo "<img src='../CSS/open-iconic-master/png/person-3x.png' alt='icon name'>";
+                        echo "Iniciar Sesion";
+                    }
                     ?>
                 </a>
                 <!-- *************** BUSCADOR
@@ -117,14 +128,16 @@
                         <div class="col-xl-12 borde-r" style="border-top:dotted 2px black;padding-top:5px;">
                             <h3>Información personal</h3>
 <!--********************************|A) INFORMACION PERSONAL|***************************************-->
-                                <form action="">
+                                <form method="post" action="../CONTROLER/ControladorBase.php">
+                                    <input type="hidden" name="c" value="Postulante_controller" />
+                                    <input type="hidden" name="a" value="update" />
                                     <div class="row">
                                         <div class="col-xl-4">
                                             <div class="input-group mb-2">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Rut :</span>
                                                 </div>
-                                                <input type="text" value="<?php echo $p->getRut();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" disabled>
+                                                <input type="text" name="rut" value="<?php echo $p->getRut();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" disabled>
                                             </div>
                                         </div>
                                         <div class="col-xl-8"></div>
@@ -133,7 +146,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Nombre :</span>
                                                 </div>
-                                                <input type="text" value="<?php echo $p->getNombre();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" name="name" value="<?php echo $p->getNombre();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-4">
@@ -141,7 +154,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Apellido Paterno :</span>
                                                 </div>
-                                                <input type="text" value="<?php echo $p->getApellido_Paterno();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" name="apellidoP" value="<?php echo $p->getApellido_Paterno();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-4">
@@ -149,7 +162,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Apellido Materno :</span>
                                                 </div>
-                                                <input type="text" value="<?php echo $p->getApellido_Materno();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" name="apellidoM" value="<?php echo $p->getApellido_Materno();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-4">
@@ -157,7 +170,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">@email :</span>
                                                 </div>
-                                                <input type="text" value="<?php echo $p->getCorreo();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" name="email" value="<?php echo $p->getCorreo();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-4">
@@ -165,7 +178,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Telefono :</span>
                                                 </div>
-                                                <input type="text" value="<?php echo $p->getTelefono();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" name="telefono" value="<?php echo $p->getTelefono();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-4"></div>
@@ -177,7 +190,7 @@
                                                 <div class="input-group-append">
                                                     <label class="input-group-text" for="inputGroupSelect02">Dia :</label>
                                                 </div>
-                                                <select class="custom-select" id="inputGroupSelect02">
+                                                <select name="day" class="custom-select" id="inputGroupSelect02">
                                                     <option disabled>-Dia-</option>
                                                     <?php
                                                         for ($i = 1; $i <=31; $i++){
@@ -196,20 +209,20 @@
                                                 <div class="input-group-append">
                                                     <label class="input-group-text" for="inputGroupSelect02">Mes :</label>
                                                 </div>
-                                                <select class="custom-select" id="inputGroupSelect02">
-                                                    <option value="" selected disabled>- Mes -</option>
-                                                    <option value="01">Enero</option>
-                                                    <option value="02">Febrero</option>
-                                                    <option value="03">Marzo</option>
-                                                    <option value="04">Abril</option>
-                                                    <option value="05">Mayo</option>
-                                                    <option value="06">Junio</option>
-                                                    <option value="07">Julio</option>
-                                                    <option value="08">Agosto</option>
-                                                    <option value="09">Septiembre</option>
-                                                    <option value="10">Octubre</option>
-                                                    <option value="11">Noviembre</option>
-                                                    <option value="12">Diciembre</option>
+                                                <select name="month" class="custom-select" id="inputGroupSelect02">
+                                                    <option value="" disabled>- Mes -</option>
+                                                    <option <?php if(substr($p->getFecha_nacimiento(),-5,-3)==1){echo "selected";}?> value="01">Enero</option>
+                                                    <option <?php if(substr($p->getFecha_nacimiento(),-5,-3)==2){echo "selected";}?> value="02">Febrero</option>
+                                                    <option <?php if(substr($p->getFecha_nacimiento(),-5,-3)==3){echo "selected";}?> value="03">Marzo</option>
+                                                    <option <?php if(substr($p->getFecha_nacimiento(),-5,-3)==4){echo "selected";}?> value="04">Abril</option>
+                                                    <option <?php if(substr($p->getFecha_nacimiento(),-5,-3)==5){echo "selected";}?> value="05">Mayo</option>
+                                                    <option <?php if(substr($p->getFecha_nacimiento(),-5,-3)==6){echo "selected";}?> value="06">Junio</option>
+                                                    <option <?php if(substr($p->getFecha_nacimiento(),-5,-3)==7){echo "selected";}?> value="07">Julio</option>
+                                                    <option <?php if(substr($p->getFecha_nacimiento(),-5,-3)==8){echo "selected";}?> value="08">Agosto</option>
+                                                    <option <?php if(substr($p->getFecha_nacimiento(),-5,-3)==9){echo "selected";}?> value="09">Septiembre</option>
+                                                    <option <?php if(substr($p->getFecha_nacimiento(),-5,-3)==10){echo "selected";}?> value="10">Octubre</option>
+                                                    <option <?php if(substr($p->getFecha_nacimiento(),-5,-3)==11){echo "selected";}?> value="11">Noviembre</option>
+                                                    <option <?php if(substr($p->getFecha_nacimiento(),-5,-3)==12){echo "selected";}?> value="12">Diciembre</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -218,7 +231,7 @@
                                                 <div class="input-group-append">
                                                     <label class="input-group-text" for="inputGroupSelect02">Año :</label>
                                                 </div>
-                                                <select class="custom-select" id="inputGroupSelect02">
+                                                <select name="year" class="custom-select" id="inputGroupSelect02">
                                                     <option value="" disabled>- Año -</option>
                                                         
                                                         <?php
@@ -245,24 +258,24 @@
                                                 <div class="input-group-append">
                                                     <label class="input-group-text" for="inputGroupSelect02">Región :</label>
                                                 </div>
-                                                <select class="custom-select" id="inputGroupSelect02">
-                                                    <option selected disabled>- Región -</option>
-                                                    <option value="15">Región de Arica y Parinacota</option>
-                                                    <option value="1">Región de Tarapacá</option>
-                                                    <option value="2">Región de Antofagasta</option>
-                                                    <option value="3">Región de Atacama</option>
-                                                    <option value="4">Región de Coquimbo</option>
-                                                    <option value="5">Región de Valparaíso</option>
-                                                    <option value="13">Región de Metropolitana de Santiago</option>
-                                                    <option value="6">Región de Libertador General Bernardo O'Higgins</option>
-                                                    <option value="7">Región de Maule</option>
-                                                    <option value="16">Región de Ñuble</option>
-                                                    <option value="8">Región de Biobío</option>
-                                                    <option value="9">Región de La Araucanía</option>
-                                                    <option value="14">Región de Los Ríos</option>
-                                                    <option value="10">Región de Los Lagos</option>
-                                                    <option value="11">Región de Aysén del General Carlos Ibáñez del Campo</option>
-                                                    <option value="12">Región de Magallanes y de la Antártica Chilena</option>
+                                                <select name="region" class="custom-select" id="inputGroupSelect02">
+                                                    <option disabled>- Región -</option>
+                                                    <option <?php if($viv->getRegion()==15){echo "selected";}?> value="15">Región de Arica y Parinacota</option>
+                                                    <option <?php if($viv->getRegion()==1){echo "selected";}?> value="1">Región de Tarapacá</option>
+                                                    <option <?php if($viv->getRegion()==2){echo "selected";}?> value="2">Región de Antofagasta</option>
+                                                    <option <?php if($viv->getRegion()==3){echo "selected";}?> value="3">Región de Atacama</option>
+                                                    <option <?php if($viv->getRegion()==4){echo "selected";}?> value="4">Región de Coquimbo</option>
+                                                    <option <?php if($viv->getRegion()==5){echo "selected";}?> value="5">Región de Valparaíso</option>
+                                                    <option <?php if($viv->getRegion()==13){echo "selected";}?> value="13">Región de Metropolitana de Santiago</option>
+                                                    <option <?php if($viv->getRegion()==6){echo "selected";}?> value="6">Región de Libertador General Bernardo O'Higgins</option>
+                                                    <option <?php if($viv->getRegion()==7){echo "selected";}?> value="7">Región de Maule</option>
+                                                    <option <?php if($viv->getRegion()==16){echo "selected";}?> value="16">Región de Ñuble</option>
+                                                    <option <?php if($viv->getRegion()==8){echo "selected";}?> value="8">Región de Biobío</option>
+                                                    <option <?php if($viv->getRegion()==9){echo "selected";}?> value="9">Región de La Araucanía</option>
+                                                    <option <?php if($viv->getRegion()==14){echo "selected";}?> value="14">Región de Los Ríos</option>
+                                                    <option <?php if($viv->getRegion()==10){echo "selected";}?> value="10">Región de Los Lagos</option>
+                                                    <option <?php if($viv->getRegion()==11){echo "selected";}?> value="11">Región de Aysén del General Carlos Ibáñez del Campo</option>
+                                                    <option <?php if($viv->getRegion()==12){echo "selected";}?> value="12">Región de Magallanes y de la Antártica Chilena</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -271,12 +284,7 @@
                                                 <div class="input-group-append">
                                                     <label class="input-group-text" for="inputGroupSelect02">Comuna :</label>
                                                 </div>
-                                                <select class="custom-select" id="inputGroupSelect02">
-                                                    <option selected disabled>-Comuna-</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
+                                                <input type="text" name="comuna" value="<?php echo $viv->getComuna();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-4"></div>
@@ -285,7 +293,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Calle :</span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" name="calle" value="<?php echo $viv->getCalle();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-3">
@@ -293,7 +301,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">N° calle # :</span>
                                                 </div>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" name="ncalle" value="<?php echo $viv->getNum_calle();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
                                         <div class="col-xl-12 mb-3">

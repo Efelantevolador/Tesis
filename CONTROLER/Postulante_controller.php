@@ -40,7 +40,6 @@
             $p->setApellido_Materno($_POST["apellidoM"]);
             $p->setFecha_nacimiento($_POST["year"]."-".$_POST["month"]."-".$_POST["day"]);
             $viv->setCalle($_POST["calle"]);
-            $viv->setCiudad($_POST["ciudad"]);
             $viv->setComuna($_POST["comuna"]);
             $viv->setNum_calle($_POST["ncalle"]);
             $viv->setRegion($_POST["region"]);
@@ -88,6 +87,10 @@
                     echo "<script>create_null()</script>";
                 }
             }
+        }
+
+        public function setDiscapacidades(){
+            
         }
     }
 ?>

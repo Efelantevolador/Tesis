@@ -67,6 +67,21 @@
             return $lista;
         }
 
+        public function getbyAyuda(){
+            $conn=new Conexion();
+            $conexion=$conn->conectar();
+            $sql="SELECT * FROM lista_ayuda WHERE cod_ayuda_lista='".$this->tipo_ayuda."' AND cod_disc_lista='".$this->cod_discapacidad."'";
+            $result = $conexion->query($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $dis=new Discapacidad();
+                $dis->setCod_discapacidad($row["cod_list_ayu"]);
+                $dis->setTipo_ayuda($row["cod_ayu_lista"]);
+                $dis->setNombre_dis($row["cod_disc_lista"]);
+            }
+            return $dis;
+        }
+
         public function listar_ayuda(){
             $conn=new Conexion();
             $conexion=$conn->conectar();
@@ -77,12 +92,13 @@
             if ($result->num_rows > 0) {
                 $lista=[];
                 while($row = $result->fetch_assoc()) {
-                    $dis=new Tipo_ayuda();
-                    $dis->setTipo_ayuda($row["cod_discapacidad"]);
-                    $lista[]=$dis;
+                    $ayuda=new Tipo_ayuda();
+                    $ayuda->setCod_ayuda($row["cod_ayuda"]);
+                    $ayuda->setNom_ayuda($row["nombre_ayuda"]);
+                    $lista[]=$ayuda;
                 }
+                return $lista;
             }
-            return $lista;
         }
     }
 ?>
