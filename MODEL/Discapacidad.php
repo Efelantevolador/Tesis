@@ -70,7 +70,7 @@
         public function getbyAyuda(){
             $conn=new Conexion();
             $conexion=$conn->conectar();
-            $sql="SELECT * FROM lista_ayuda WHERE cod_ayuda_lista='".$this->tipo_ayuda."' AND cod_disc_lista='".$this->cod_discapacidad."'";
+            $sql="SELECT * FROM lista_ayuda WHERE cod_ayu_lista='".$this->tipo_ayuda."' AND cod_disc_lista='".$this->cod_discapacidad."'";
             $result = $conexion->query($sql);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();

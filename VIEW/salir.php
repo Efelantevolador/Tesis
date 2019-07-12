@@ -6,5 +6,5 @@
 <?php
 session_start();
 session_destroy();
-return "<script>inicio()</script>";
+echo "<script>inicio()</script>";
 ?>

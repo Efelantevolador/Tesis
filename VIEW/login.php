@@ -76,22 +76,24 @@
                         <div class="col-xl-6"style="margin:80px;">
                             <h1 class="text-center">Inicio de Sesion</h1>
                             <!--Formulario inicio-->
-                            <form method="post" action="../VIEW/perfil.php">
+                            <form method="post" action="../CONTROLER/ControladorBase.php">
+                            <input type="hidden" name="c" value="Usuario_controller" />
+                            <input type="hidden" name="a" value="login" />
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">@ Gmail</span>
                                     </div>
-                                    <input type="email" class="form-control" placeholder="" aria-label="email" aria-describedby="basic-addon1">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="" aria-label="email" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">Password</span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="" aria-label="password" aria-describedby="basic-addon1">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="" aria-label="password" aria-describedby="basic-addon1">
                                 </div>
                                 <div class="col-xl-12 mb-3" >
-                                    <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Iniciar Sesión">
-                                </div>  
+                                    <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Iniciar Sesión" class="special"/>
+                                </div>
                             </form>
                             <!--Fin Formulario inicio-->
                     </div>

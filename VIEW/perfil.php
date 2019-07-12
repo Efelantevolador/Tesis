@@ -61,7 +61,7 @@
                         echo $p->getNombre()." ".$p->getApellido_Paterno();
                     }
                     else{
-                        echo "<a href='iniciarSesion.php'><img src='../CSS/open-iconic-master/png/account-login-3x.png' alt='icon name'></a>";
+                        echo "<a href='login.php'><img src='../CSS/open-iconic-master/png/account-login-3x.png' alt='icon name'></a>";
                         echo "<img src='../CSS/open-iconic-master/png/person-3x.png' alt='icon name'>";
                         echo "Iniciar Sesion";
                     }

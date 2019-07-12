@@ -90,7 +90,16 @@
         }
 
         public function setDiscapacidades(){
-            
+            foreach($_POST['ayudap'] as $ayuda){
+                $dis=new Discapacidad();
+                $dis->setTipo_ayuda($ayuda);
+                $dis->setCod_discapacidad($_POST["comboboxP"]);
+                $dis->setTipo_ayuda($ayuda);
+                $dis=$dis->getbyAyuda();
+                $p=new Postulante();
+                $p=$_SESSION["Postulante"];
+                echo $p->setDiscapacidades($dis->getCod_discapacidad());
+            }
         }
     }
 ?>

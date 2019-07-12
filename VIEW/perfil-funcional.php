@@ -191,11 +191,17 @@
                     </li>
                 </ul>
                 <a class="nav-link" style="color:white;" href="#">
-                    <img src="../CSS/open-iconic-master/png/account-login-3x.png" alt="icon name">  <!--|  Entrar  |--->
-                    <img src="../CSS/open-iconic-master/png/account-logout-3x.png" alt="icon name"> <!--|  Salir   |--->
-                    <img src="../CSS/open-iconic-master/png/person-3x.png" alt="icon name">         <!--| Usuario  |-->
-                    <?php
-                    echo $p->getNombre()." ".$p->getApellido_Paterno();
+                <?php
+                    if(isset($_SESSION["Postulante"])){
+                        echo "<a href='salir.php'><img src='../CSS/open-iconic-master/png/account-logout-3x.png' alt='icon name'></a>";
+                        echo "<img src='../CSS/open-iconic-master/png/person-3x.png' alt='icon name'>";
+                        echo $p->getNombre()." ".$p->getApellido_Paterno();
+                    }
+                    else{
+                        echo "<a href='login.php'><img src='../CSS/open-iconic-master/png/account-login-3x.png' alt='icon name'></a>";
+                        echo "<img src='../CSS/open-iconic-master/png/person-3x.png' alt='icon name'>";
+                        echo "Iniciar Sesion";
+                    }
                     ?>
                 </a>
                 <!-- *************** BUSCADOR
@@ -260,7 +266,9 @@
                             <h3>Información Funcional</h3>
 <!--********************************|A) INFORMACION Discapacidad|***************************************-->
                                 
-                                <form id="miform" action="">
+                                <form id="miform" method="post" action="../CONTROLER/ControladorBase.php">
+                                    <input type="hidden" name="c" value="Postulante_controller" />
+                                    <input type="hidden" name="a" value="setDiscapacidades" />
                                     <div class="row">
                                         <div class="col-xl-12">
                                             <h6>Selecciones las opciones que usted precenta.</h6>
@@ -269,7 +277,7 @@
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <input type="checkbox" id="check" aria-label="Checkbox for following text input" onchange="javascript:Paralisis()">
+                                                        <input type="checkbox" name="check[]" value="Paralisis" id="check" aria-label="Checkbox for following text input" onchange="javascript:Paralisis()">
                                                     </div>
                                                 </div>
                                                 <input type="text" value="Paralisis" class="form-control" disabled aria-label="Text input with checkbox">
@@ -279,7 +287,7 @@
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <input type="checkbox" id="check2" aria-label="Checkbox for following text input" onchange="javascript:ParalisisCerebral()">
+                                                        <input type="checkbox" name="check[]" value="ParalisisCerebral" id="check" aria-label="Checkbox for following text input" onchange="javascript:ParalisisCerebral()">
                                                     </div>
                                                 </div>
                                                 <input type="text" value="Paralisis Cerebral" class="form-control" disabled aria-label="Text input with checkbox">
@@ -295,8 +303,8 @@
                                                 <div class="input-group-append">
                                                     <label class="input-group-text" for="comboboxP">Tipo :</label>
                                                 </div>
-                                                <select class="custom-select" id="comboboxP" onchange="javascript:filtroP()">
-                                                <option selected disabled id="combotortuga" value="0">-Paralisis-</option>
+                                                <select name="comboboxP" class="custom-select" id="comboboxP" onchange="javascript:filtroP()">
+                                                <option selected disabled>-Paralisis-</option>
                                                 <?php
                                                     $disc=new Discapacidad();
                                                     $dis->setTipo_dis("7");
@@ -320,7 +328,7 @@
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <input name="ayudap" type="checkbox" id="Imuleta" aria-label="Checkbox for following text input">
+                                                        <input name="ayudap[]" value="1" type="checkbox" id="ayudap" aria-label="Checkbox for following text input">
                                                     </div>
                                                 </div>
                                                 <input type="text" value="Muletas" class="form-control" disabled aria-label="Text input with checkbox">
@@ -333,7 +341,7 @@
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <input name="ayudap" type="checkbox" id="Isilla" aria-label="Checkbox for following text input">
+                                                        <input name="ayudap[]" value="2" type="checkbox" id="ayudap" aria-label="Checkbox for following text input">
                                                     </div>
                                                 </div>
                                                 <input type="text" value="Silla ruedas" class="form-control" disabled aria-label="Text input with checkbox">
@@ -346,7 +354,7 @@
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <input name="ayudap" type="checkbox" id="IsillaE" aria-label="Checkbox for following text input">
+                                                        <input name="ayudap[]" value="3" type="checkbox" id="ayudap" aria-label="Checkbox for following text input">
                                                     </div>
                                                 </div>
                                                 <input type="text" value="Silla Ruedas Electrica" class="form-control" disabled aria-label="Text input with checkbox">
