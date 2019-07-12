@@ -7,58 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <link rel="stylesheet" href="../CSS/bootstrap/css/bootstrap.min.css">
-        <script type="text/javascript">
-        function Paralisis() {
-        element = document.getElementById("contenido");
-        element0 = document.getElementById("contenido0");
-        element1 = document.getElementById("contenido1");
-        element2 = document.getElementById("contenido2");
-        element3 = document.getElementById("contenido3");
-        check = document.getElementById("check");
-        if (check.checked) {
-            element.style.display='block';
-            element0.style.display='block';
-            element1.style.display='block';
-            element2.style.display='block';
-            element3.style.display='block';
-        }
-        else {
-            element.style.display='none';
-            element0.style.display='none';
-            element1.style.display='none';
-            element2.style.display='none';
-            element3.style.display='none';
-        }
-    }
-        function ParalisisCerebral() {
-        element = document.getElementById("conte");
-        element0 = document.getElementById("conte0");
-        element1 = document.getElementById("conte1");
-        element2 = document.getElementById("conte2");
-        element3 = document.getElementById("conte3");
-        check = document.getElementById("check2");
-        if (check.checked) {
-            element.style.display='block';
-            element0.style.display='block';
-            element1.style.display='block';
-            element2.style.display='block';
-            element3.style.display='block';
-            btn2.style.display='block';
-        }
-        else {
-            element.style.display='none';
-            element0.style.display='none';
-            element1.style.display='none';
-            element2.style.display='none';
-            element3.style.display='none';
-        }
-    }
-        function tipoParalisis(){
-            element = document.get
-        }
-</script>
-    </head>
-    <body>
         <?php
             require_once("../MODEL/Postulante.php");
             require_once("../MODEL/Discapacidad.php");
@@ -67,6 +15,149 @@
             $dis=new Discapacidad();
             $p=$_SESSION["Postulante"];
         ?>
+        <script type="text/javascript">
+        function Paralisis() {
+            element = document.getElementById("combobox");
+            titulo = document.getElementById("titulo");
+            check = document.getElementById("check");
+            silla = document.getElementById("silla");
+            sillaE = document.getElementById("sillaE");
+            muleta = document.getElementById("muleta");
+            if (check.checked) {
+                element.style.display='block';
+            }
+            else {
+                element.style.display='none';
+                titulo.style.display='none';
+                silla.style.display='none';
+                sillaE.style.display='none';
+                muleta.style.display='none';
+                document.getElementById("Imuleta").checked=false;
+                document.getElementById("IsillaE").checked=false;
+                document.getElementById("Isilla").checked=false;
+                document.getElementById("combotortuga").selected=true;
+
+            }
+        }
+        function ParalisisCerebral() {
+        element = document.getElementById("combo");
+        titulo = document.getElementById("titulo2");
+        silla = document.getElementById("silla2");
+        sillaE = document.getElementById("sillaE2");
+        muleta = document.getElementById("muleta2");
+        check = document.getElementById("check2");
+        if (check.checked) {
+            element.style.display='block';
+        }
+        else {
+            element.style.display='none';
+            titulo.style.display='none';
+            silla.style.display='none';
+            sillaE.style.display='none';
+            muleta.style.display='none';
+            document.getElementById("Imuleta2").checked=false;
+            document.getElementById("IsillaE2").checked=false;
+            document.getElementById("Isilla2").checked=false;
+            document.getElementById("combotortuga2").selected=true;
+        }
+    }
+        function filtroP(){
+            variable= document.getElementById("comboboxP").value;
+            silla = document.getElementById("silla");
+            sillaE = document.getElementById("sillaE");
+            muleta = document.getElementById("muleta");
+            titulo = document.getElementById("titulo");
+            if (variable==1){ //Hemiplegia  cod=1
+                silla.style.display='block';
+                sillaE.style.display='block';
+                muleta.style.display='block';
+                titulo.style.display='block';
+                document.getElementById("Imuleta").checked=false;
+                document.getElementById("IsillaE").checked=false;
+                document.getElementById("Isilla").checked=false;
+            }
+            else if (variable==2){ //diplegia cod=2
+                silla.style.display='block';
+                sillaE.style.display='block';
+                muleta.style.display='none';
+                titulo.style.display='block';
+                document.getElementById("Imuleta").checked=false;
+                document.getElementById("IsillaE").checked=false;
+                document.getElementById("Isilla").checked=false;
+            }
+            else if(variable==3){ //paraplegia cod=3
+                silla.style.display='block';
+                sillaE.style.display='block';
+                muleta.style.display='none';
+                titulo.style.display='block';
+                document.getElementById("Imuleta").checked=false;
+                document.getElementById("IsillaE").checked=false;
+                document.getElementById("Isilla").checked=false;
+            }
+            else if (variable==4){ //monoplegia cod=4
+                silla.style.display='none';
+                sillaE.style.display='none';
+                muleta.style.display='none';
+                titulo.style.display='none';
+                document.getElementById("Imuleta").checked=false;
+                document.getElementById("IsillaE").checked=false;
+                document.getElementById("Isilla").checked=false;
+            }
+            else if (variable==5){ //tripegia cod=5
+                silla.style.display='none';
+                sillaE.style.display='block';
+                muleta.style.display='none';
+                titulo.style.display='block';
+                document.getElementById("Imuleta").checked=false;
+                document.getElementById("IsillaE").checked=false;
+                document.getElementById("Isilla").checked=false;
+            }
+            else{
+                silla.style.display='none';
+                sillaE.style.display='none';
+                muleta.style.display='none';
+                titulo.style.display='none';
+                document.getElementById("Imuleta").checked=false;
+                document.getElementById("IsillaE").checked=false;
+                document.getElementById("Isilla").checked=false;
+            }
+        }
+        function filtroPC(){
+            variable= document.getElementById("comboboxPC").value;
+            silla = document.getElementById("silla2");
+            sillaE = document.getElementById("sillaE2");
+            muleta = document.getElementById("muleta2");
+            titulo = document.getElementById("titulo2");
+            if (variable==8){ //espaticidad Cod=8
+                silla.style.display='none';
+                sillaE.style.display='none';
+                muleta.style.display='block';
+                titulo.style.display='block';
+                document.getElementById("Imuleta2").checked=false;
+                document.getElementById("IsillaE2").checked=false;
+                document.getElementById("Isilla2").checked=false;
+            }
+            else if(variable==9){ // Atetosis cod=9
+                silla.style.display='block';
+                sillaE.style.display='block';
+                muleta.style.display='block';
+                titulo.style.display='block';
+                document.getElementById("Imuleta2").checked=false;
+                document.getElementById("IsillaE2").checked=false;
+                document.getElementById("Isilla2").checked=false;
+                
+            }
+            else{
+                silla.style.display='none';
+                sillaE.style.display='none';
+                muleta.style.display='none';
+                titulo.style.display='none';
+            }
+        }
+</script>
+    </head>
+    <body>
+        
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     <header>
     <!-- Barra Navegacion -->
@@ -169,7 +260,7 @@
                             <h3>Información Funcional</h3>
 <!--********************************|A) INFORMACION Discapacidad|***************************************-->
                                 
-                                <form action="">
+                                <form id="miform" action="">
                                     <div class="row">
                                         <div class="col-xl-12">
                                             <h6>Selecciones las opciones que usted precenta.</h6>
@@ -199,13 +290,13 @@
                                         <div class="col-xl-12"></div>  <!-- Opcion Paralisis -->
 
 
-                                        <div class="col-xl-4" style="display: none;" id="contenido">
+                                        <div class="col-xl-4" style="display: none;" id="combobox">
                                             <div class="input-group mb-4">
                                                 <div class="input-group-append">
-                                                    <label class="input-group-text" for="inputGroupSelect02">Tipo :</label>
+                                                    <label class="input-group-text" for="comboboxP">Tipo :</label>
                                                 </div>
-                                                <select class="custom-select" id="inputGroupSelect02">
-                                                <option selected disabled>-Paralisis-</option>
+                                                <select class="custom-select" id="comboboxP" onchange="javascript:filtroP()">
+                                                <option selected disabled id="combotortuga" value="0">-Paralisis-</option>
                                                 <?php
                                                     $disc=new Discapacidad();
                                                     $dis->setTipo_dis("7");
@@ -219,17 +310,17 @@
                                         </div>
 
                                         
-                                        <div class="col-xl-12" style="display:none;" id="contenido0">
+                                        <div class="col-xl-12" style="display:none;" id="titulo">
                                             <h6>Herramientas de ayuda Necesarias</h6>
                                         </div>  <!-- salto linea -->
                                         <?php
                                             
                                         ?>
-                                        <div class="col-xl-3" style="display:none;" id="contenido1">
+                                        <div class="col-xl-3" style="display:none;" id="muleta">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                                        <input name="ayudap" type="checkbox" id="Imuleta" aria-label="Checkbox for following text input">
                                                     </div>
                                                 </div>
                                                 <input type="text" value="Muletas" class="form-control" disabled aria-label="Text input with checkbox">
@@ -238,11 +329,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-3" style="display:none;" id="contenido2">
+                                        <div class="col-xl-3" style="display:none;" id="silla">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                                        <input name="ayudap" type="checkbox" id="Isilla" aria-label="Checkbox for following text input">
                                                     </div>
                                                 </div>
                                                 <input type="text" value="Silla ruedas" class="form-control" disabled aria-label="Text input with checkbox">
@@ -251,11 +342,11 @@
                                                 </div>
                                             </div>
                                         </div>   
-                                        <div class="col-xl-4" style="display:none;" id="contenido3">
+                                        <div class="col-xl-4" style="display:none;" id="sillaE">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                                        <input name="ayudap" type="checkbox" id="IsillaE" aria-label="Checkbox for following text input">
                                                     </div>
                                                 </div>
                                                 <input type="text" value="Silla Ruedas Electrica" class="form-control" disabled aria-label="Text input with checkbox">
@@ -264,14 +355,19 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--OPCION PARALISIS CEREBRAL-->
-                                        <div class="col-xl-4" id="conte" style="display:none;">
+                                        <div class="col-xl-12"></div>
+                                        <!--************************************************OPCION PARALISIS CEREBRAL**********************************-->
+                                        <!--************************************************OPCION PARALISIS CEREBRAL**********************************-->
+                                        <!--************************************************OPCION PARALISIS CEREBRAL**********************************-->
+                                        <!--************************************************OPCION PARALISIS CEREBRAL**********************************-->
+                                        <!--************************************************OPCION PARALISIS CEREBRAL**********************************-->
+                                        <div class="col-xl-4" id="combo" style="display:none;">
                                             <div class="input-group mb-4">
                                                 <div class="input-group-append">
-                                                    <label class="input-group-text" for="inputGroupSelect02">Tipo :</label>
+                                                    <label class="input-group-text" for="comboboxPC">Tipo :</label>
                                                 </div>
-                                                <select class="custom-select" id="inputGroupSelect02">
-                                                    <option selected disabled>-Paralisis Cerebral-</option>
+                                                <select class="custom-select" id="comboboxPC" onchange="javascript:filtroPC()">
+                                                    <option selected disabled id="combotortuga2">-Paralisis Cerebral-</option>
                                                     <?php
                                                         $disc=new Discapacidad();
                                                         $dis->setTipo_dis("8");
@@ -283,12 +379,15 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-xl-12" style="display:none;" id="titulo2">
+                                            <h6>Herramientas de ayuda Necesarias</h6>
+                                        </div>  <!-- salto linea -->
                                         <div class="col-xl-12"></div>
-                                        <div class="col-xl-3" id="conte0" style="display:none;">
+                                        <div class="col-xl-3" id="muleta2" style="display:none;">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                                        <input name="ayudapc" type="checkbox" id="Imuleta2" aria-label="Checkbox for following text input">
                                                     </div>
                                                 </div>
                                                 <input type="text" value="Muletas" class="form-control" disabled aria-label="Text input with checkbox">
@@ -297,11 +396,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-3" id="conte1" style="display:none;">
+                                        <div class="col-xl-3" id="silla2" style="display:none;">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                                        <input name="ayudapc" type="checkbox" id="Isilla2" aria-label="Checkbox for following text input">
                                                     </div>
                                                 </div>
                                                 <input type="text" value="Silla ruedas" class="form-control" disabled aria-label="Text input with checkbox">
@@ -310,11 +409,11 @@
                                                 </div>
                                             </div>
                                         </div>   
-                                        <div class="col-xl-4" id="conte2" style="display:none;">
+                                        <div class="col-xl-4" id="sillaE2" style="display:none;">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <input type="checkbox" aria-label="Checkbox for following text input">
+                                                        <input name="ayudapc" type="checkbox" id="IsillaE2" aria-label="Checkbox for following text input">
                                                     </div>
                                                 </div>
                                                 <input type="text" value="Silla Ruedas Electrica" class="form-control" disabled aria-label="Text input with checkbox">
