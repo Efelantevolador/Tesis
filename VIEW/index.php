@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Login</title>
+        <title>TITULO</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../CSS/miestilo.css">
@@ -46,11 +46,12 @@
                     <img src="../CSS/open-iconic-master/png/account-login-3x.png" alt="icon name">  <!--|  Entrar  |--->
                     Iniciar Sesión
                 </a>
-                <!-- *************** BUSCADOR
+                <!-- *************** BUSCADOR **********************************
                 <form class="form-inline my-2 my-lg-0 disabled">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
+                ******************************************************************
                 -->
             </div>
         </div> 
@@ -60,42 +61,40 @@
     
     <div class="container-fluid">
         <div class="row"> <!--row: se utiliza para definir una tabla de posicionamiento donde utilizar despues las clases Col-xs-?  -->
-            <!--*************************|2 MENU DE NAVEGACION IZQUIERDO |**********************************************************-->
-            <div class="col-xl-3">
-            </div>
-            <!--*************************|2 FIN MENU DE NAVEGACION IZQUIERDO |******************************************************-->
-            <div class="col-xl-9">
+            <div class="col-xl-12">
                 <div class="container">
-                <!--*****************|3 CONTENIDO INTERNO DE PAG|*****************************************************************-->
-                        <div class="row align-content-center">
+                    <div class="row align-content-center">
                         <div class="col-xl-1 text-center"></div>
-                        <div class="col-xl-10 text-center">
-                            <h1 style="color:white;"></h1>
+                        <div class="col-xl-10 text-center" style="margin-top:20px;">
+                            <h1>Trabaja a tu medida</h1>
                         </div>
                         <div class="col-xl-1 text-center"></div>
-                        <div class="col-xl-6"style="margin:80px;">
-                            <h1 class="text-center">Inicio de Sesion</h1>
-                            <!--Formulario inicio-->
-                            <form method="post" action="../VIEW/perfil.php">
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">@ Gmail</span>
-                                    </div>
-                                    <input type="email" class="form-control" placeholder="" aria-label="email" aria-describedby="basic-addon1">
-                                </div>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Password</span>
-                                    </div>
-                                    <input type="password" class="form-control" placeholder="" aria-label="password" aria-describedby="basic-addon1">
-                                </div>
-                                <div class="col-xl-12 mb-3" >
-                                    <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Iniciar Sesión">
-                                </div>  
-                            </form>
-                            <!--Fin Formulario inicio-->
+                        <div class="col-xl-12" style="margin-top:20px;">
+                            <p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                                Culpa officia id dolorum totam delectus magnam mollitia aut 
+                                nesciunt beatae, maiores aspernatur molestias quia voluptates, 
+                                cumque optio dolore accusantium enim possimus.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Porro minima minus pariatur commodi, ex laudantium eos odit quam 
+                                quibusdam fuga quasi obcaecati ipsum recusandae natus quod facere 
+                                ratione qui harum. Consequuntur autem maxime iste officiis 
+                                modi sint earum labore ratione nostrum, voluptas asperiores voluptatum 
+                                debitis quidem. Perferendis nesciunt eos eveniet consequuntur, 
+                                ut in distinctio mollitia enim accusantium asperiores minus ad. 
+                                Accusantium asperiores iusto explicabo consequatur corrupti ea 
+                                iure nobis quam voluptates, porro vitae totam officia officiis 
+                                possimus molestias ut earum? Nam sunt nulla quibusdam fuga fugit 
+                                accusamus dolor, dolore culpa beatae veritatis iste ratione, 
+                                eveniet provident vero nemo dignissimos! Eligendi illum aspernatur 
+                                aut odit reiciendis, deserunt facilis autem sunt at eos incidunt 
+                                in quia! Voluptas, tenetur porro quas, obcaecati eveniet cupiditate 
+                                saepe dolores repellat natus dolore quo earum nesciunt. Voluptas ut 
+                                voluptatem laboriosam accusamus, nisi alias perspiciatis odit possimus. 
+                                Quo ea assumenda modi quibusdam reiciendis numquam at eius vero nulla!   
+                            </p>
+                        </div>
                     </div>
-                <!--*****************|3 FIN CONTENIDO INTERNO DE PAG|*************************************************************-->
                 </div>
             </div>
         </div>  
